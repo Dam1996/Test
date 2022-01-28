@@ -32,7 +32,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @RequestMapping(method = RequestMethod.GET, value ="/user")
     public List<UsuarioMicroservice> getUsuariosMicroservice() {
-        List<UsuarioMicroservice> usuarioMicroservice = restTemplate.getForObject("http://localhost:8001/user", List.class);
+        List<UsuarioMicroservice> usuarioMicroservice = restTemplate.getForObject("http://user-service/user", List.class);
         return usuarioMicroservice;
     }
 
