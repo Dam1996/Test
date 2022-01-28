@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -28,11 +30,13 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     UsuarioMicroserviceFeignClient usuarioMicroserviceFeignClient;
 
+    @RequestMapping(method = RequestMethod.GET, value ="/user")
     public List<UsuarioMicroservice> getUsuariosMicroservice() {
         List<UsuarioMicroservice> usuarioMicroservice = restTemplate.getForObject("http://localhost:8001/user", List.class);
         return usuarioMicroservice;
     }
 
+    @RequestMapping(method = RequestMethod.POST, value ="/user")
     public UsuarioMicroservice saveUsuarioMicroservice(UsuarioMicroservice usuarioMicroservice) {
         UsuarioMicroservice usuarioMicroserviceNew = usuarioMicroserviceFeignClient.save(usuarioMicroservice);
         return usuarioMicroserviceNew;

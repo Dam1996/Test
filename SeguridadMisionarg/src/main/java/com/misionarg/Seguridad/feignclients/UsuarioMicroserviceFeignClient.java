@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "user-service", url = "http://localhost:8001")
-@RequestMapping("/user")
+@FeignClient(name = "user-service")
+//@RequestMapping("/user")
 public interface UsuarioMicroserviceFeignClient {
 
     @PostMapping()
