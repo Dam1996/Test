@@ -6,7 +6,9 @@ spring:
       server:
         git:
           default-label: config-server
-          uri: https://github.com/cavanosa/microservices-tutorial
+          uri: https://github.com/Dam1996/Test
           search-paths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
   application:
     name: config-service
