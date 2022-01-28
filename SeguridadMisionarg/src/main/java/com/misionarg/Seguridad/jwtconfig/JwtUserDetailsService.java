@@ -4,6 +4,7 @@ package com.misionarg.Seguridad.jwtconfig;
 import com.misionarg.Seguridad.Model.Usuario;
 import com.misionarg.Seguridad.Model.UsuarioMicroservice;
 import com.misionarg.Seguridad.Service.ServiceUsuario;
+import com.misionarg.Seguridad.feignclients.UsuarioMicroserviceFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,9 +25,17 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     RestTemplate restTemplate;
 
+    @Autowired
+    UsuarioMicroserviceFeignClient usuarioMicroserviceFeignClient;
+
     public List<UsuarioMicroservice> getUsuariosMicroservice() {
         List<UsuarioMicroservice> usuarioMicroservice = restTemplate.getForObject("http://localhost:8001/user", List.class);
         return usuarioMicroservice;
+    }
+
+    public UsuarioMicroservice saveUsuarioMicroservice(UsuarioMicroservice usuarioMicroservice) {
+        UsuarioMicroservice usuarioMicroserviceNew = usuarioMicroserviceFeignClient.save(usuarioMicroservice);
+        return usuarioMicroserviceNew;
     }
 
 

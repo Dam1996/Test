@@ -59,4 +59,10 @@ public class JwtAuthenticationController {
         List<UsuarioMicroservice> usuarioMicroservices = userDetailsService.getUsuariosMicroservice();
         return ResponseEntity.ok(usuarioMicroservices);
     }
+
+    @PostMapping("/saveusuariomicroservice")
+    public ResponseEntity<UsuarioMicroservice> saveusuarioMicroservice(@RequestBody UsuarioMicroservice usuarioMicroservice) {
+        UsuarioMicroservice usuarioMicroserviceNew = userDetailsService.saveUsuarioMicroservice(usuarioMicroservice);
+        return ResponseEntity.ok(usuarioMicroservice);
+    }
 }

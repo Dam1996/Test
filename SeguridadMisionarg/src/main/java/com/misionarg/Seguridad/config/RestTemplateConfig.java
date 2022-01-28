@@ -1,4 +1,4 @@
-package com.misionarg.Seguridad.restconfig;
+package com.misionarg.Seguridad.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
