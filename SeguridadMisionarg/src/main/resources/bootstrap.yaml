@@ -1,0 +1,36 @@
+spring:
+
+  datasource:
+    username: admin
+    url: jdbc:sqlserver://localhost:1433;databaseName=misionarg
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    password: root
+
+  application:
+    name: Seguridad
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+
+
+
+
+      #spring:
+      #config:
+      #import:
+    #optional:
+    #configserver: http://localhost:8080
+
+    #jwt.secret=${JWT_SECRET}
+
+#CONEXION LOCAL
+#spring.datasource.driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver
+#spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=misionarg
+#spring.datasource.username=admin
+#spring.datasource.password=root
+
+# CONEXION CASIMIRO
+#spring.datasource.url=jdbc:sqlserver://201.139.80.33:64232;databaseName=DBSECURITY
+#spring.datasource.username=dev
+#spring.datasource.password=Pa55w.D3v
