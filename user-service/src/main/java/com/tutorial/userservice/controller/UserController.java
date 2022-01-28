@@ -21,6 +21,8 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
+        System.out.println("Encontre el microservicio") ;
+
         List<User> users = userService.getAll();
         if(users.isEmpty())
             return ResponseEntity.noContent().build();
