@@ -8,10 +8,11 @@ spring:
 
   application:
     name: Seguridad
-  cloud:
-    config:
-      enabled: true
-      uri: http://localhost:8081
+    # cloud:
+    #    config:
+    #      enabled: true
+    #      uri: http://localhost:8081
+
 
 
     #jwt.secret=${JWT_SECRET}

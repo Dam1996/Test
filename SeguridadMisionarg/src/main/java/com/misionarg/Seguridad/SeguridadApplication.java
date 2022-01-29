@@ -10,8 +10,8 @@ import java.util.Base64;
 
 
 @SpringBootApplication
-@EnableFeignClients
-@EnableEurekaClient
+//@EnableFeignClients
+//@EnableEurekaClient
 public class SeguridadApplication {
 
 	public static void main(String[] args) {

@@ -1,6 +1,5 @@
 package com.misionarg.Seguridad.Controller;
 
-import com.misionarg.Seguridad.Model.UsuarioMicroservice;
 import com.misionarg.Seguridad.jwtconfig.JwtRequest;
 import com.misionarg.Seguridad.jwtconfig.JwtResponse;
 import com.misionarg.Seguridad.jwtconfig.JwtTokenUtil;
@@ -13,8 +12,6 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -52,17 +49,5 @@ public class JwtAuthenticationController {
         } catch (BadCredentialsException e) {
             throw new Exception("INVALID_CREDENTIALS", e);
         }
-    }
-
-    @GetMapping("/users")
-    public ResponseEntity<List<UsuarioMicroservice>> getUsers() {
-        List<UsuarioMicroservice> usuarioMicroservices = userDetailsService.getUsuariosMicroservice();
-        return ResponseEntity.ok(usuarioMicroservices);
-    }
-
-    @PostMapping("/saveusuariomicroservice")
-    public ResponseEntity<UsuarioMicroservice> saveusuarioMicroservice(@RequestBody UsuarioMicroservice usuarioMicroservice) {
-        UsuarioMicroservice usuarioMicroserviceNew = userDetailsService.saveUsuarioMicroservice(usuarioMicroservice);
-        return ResponseEntity.ok(usuarioMicroservice);
     }
 }
