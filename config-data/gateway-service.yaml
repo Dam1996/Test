@@ -39,14 +39,14 @@ spring:
       client:
         provider:
           keycloak:
-            authorization-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/auth
-            userinfo-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/userinfo
+            authorization-uri: http://localhost:8180/auth/realms/tutorial-realm/protocol/openid-connect/auth 
+            userinfo-uri: http://localhost:8180/auth/realms/tutorial-realm/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
-            token-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/token
+            token-uri: http://localhost:8180/auth/realms/tutorial-realm/protocol/openid-connect/token
         registration:
-          misionarg-client:
+          tutorial-client:
             provider: keycloak
-            client-id: misionarg-client
-            client-secret: 2ssiSYtxVdtaSsOSqxkR2jZk9DtExVWE
+            client-id: tutorial-client
+            client-secret: d4HUIQCmAtKImJZe8oLS2N5px3p4b1EF
             authorization-grant-type: authorization_code
-            redirect-uri: http:localhost:8080/login/oauth2/code/misionarg-client
+            redirect-uri: "{baseUrl}/login/oauth2/code/tutorial-client"
