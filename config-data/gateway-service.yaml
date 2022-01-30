@@ -13,6 +13,8 @@ eureka:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -21,6 +23,8 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
+          filters:
+            - RemoveRequestHeader=Cookie
         - id: car-service
           uri: lb://car-service
           predicates:
@@ -29,7 +33,20 @@ spring:
           uri: lb://bike-service
           predicates:
             - Path=/bike/**
-        - id: Seguridad
-          uri: lb://Seguridad
-          predicates:
-            - Path=/authenticate/**
+
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+            token-uri: http://localhost:8180/auth/realms/misionarg-realm/protocol/openid-connect/token
+        registration:
+          misionarg-client:
+            provider: keycloak
+            client-id: misionarg-client
+            client-secret: 2ssiSYtxVdtaSsOSqxkR2jZk9DtExVWE
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/misionarg-client"
