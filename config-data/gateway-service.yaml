@@ -1,5 +1,5 @@
 server:
-  port: 8015
+  port: 8080
   
 eureka:
   client:
@@ -49,4 +49,4 @@ spring:
             client-id: misionarg-client
             client-secret: 2ssiSYtxVdtaSsOSqxkR2jZk9DtExVWE
             authorization-grant-type: authorization_code
-            redirect-uri: http:localhost:8015/login/oauth2/code/misionarg-client
+            redirect-uri: "{baseUrl}/login/oauth2/code/misionarg-client"
