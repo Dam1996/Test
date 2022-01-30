@@ -49,4 +49,4 @@ spring:
             client-id: misionarg-client
             client-secret: 2ssiSYtxVdtaSsOSqxkR2jZk9DtExVWE
             authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/misionarg-client"
+            redirect-uri: http:localhost:8080/login/oauth2/code/misionarg-client
